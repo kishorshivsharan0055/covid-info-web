@@ -1,0 +1,8 @@
+query getRATCenters {
+  getRATCenter {
+    id
+    hosp_Name
+    location
+    address
+  }
+}

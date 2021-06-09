@@ -1,0 +1,11 @@
+query getTiffin {
+  getTiffin {
+    id
+    provider_name
+    phone_no
+    address
+    price
+    delivery
+    food
+  }
+}

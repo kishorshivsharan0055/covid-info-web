@@ -1,0 +1,17 @@
+query getBeds {
+  getBeds {
+    id
+    hosp_Name
+    phone_no
+    address
+    with_oxygen
+    without_oxygen
+    icu
+    icu_ventilator
+    with_oxygen_left
+    without_oxygen_left
+    icu_left
+    icu_ventilator_left
+    location
+  }
+}

@@ -1,0 +1,10 @@
+query getPlasma {
+  getPlasma {
+    id
+    hosp_Name
+    phone_no
+    mail_id
+    location
+    address
+  }
+}
