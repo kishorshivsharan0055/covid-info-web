@@ -1,15 +1,14 @@
-import { NavBar } from "../components/NavBar";
-import { withUrqlClient } from "next-urql";
-import { createUrqlClient } from "../utils/createUrqlClient";
-import { Beds } from "../components/beds";
 import { Box, Button } from "@chakra-ui/core";
+import { withUrqlClient } from "next-urql";
 import { useState } from "react";
+import { Ambulance } from "../components/Ambulance";
+import { Beds } from "../components/beds";
+import { Helpline } from "../components/Helpline";
+import { NavBar } from "../components/NavBar";
 import { Plasma } from "../components/Plasma";
 import { RATCenters } from "../components/RATCenters";
-import { Ambulance } from "../components/Ambulance";
-import { Helpline } from "../components/Helpline";
 import { Tiffin } from "../components/Tiffin";
-import { Footer } from "../components/Footer";
+import { createUrqlClient } from "../utils/createUrqlClient";
 
 const Index = () => {
   const [Variant1, setVariant1] = useState("solid");
@@ -77,31 +76,31 @@ const Index = () => {
         overflow="hidden"
         p="5"
       >
-        <Button ml="5" variant={Variant1} onClick={() => showInfo("1")}>
+        <Button m="2" variant={Variant1} onClick={() => showInfo("1")}>
           Beds
         </Button>
 
-        <Button ml="5" variant={Variant2} onClick={() => showInfo("2")}>
+        <Button m="2" variant={Variant2} onClick={() => showInfo("2")}>
           Plasma
         </Button>
 
-        <Button ml="5" variant={Variant3} onClick={() => showInfo("3")}>
+        <Button m="2" variant={Variant3} onClick={() => showInfo("3")}>
           Rapid Antigen Test Centers
         </Button>
 
-        <Button ml="5" variant={Variant4} onClick={() => showInfo("4")}>
+        <Button m="2" variant={Variant4} onClick={() => showInfo("4")}>
           Ambulance
         </Button>
 
-        <Button ml="5" variant={Variant5} onClick={() => showInfo("5")}>
+        <Button m="2" variant={Variant5} onClick={() => showInfo("5")}>
           24x7 Helpline
         </Button>
 
-        <Button ml="5" variant={Variant6} onClick={() => showInfo("6")}>
+        <Button m="2" variant={Variant6} onClick={() => showInfo("6")}>
           Remdesivir Information
         </Button>
 
-        <Button ml="5" variant={Variant7} onClick={() => showInfo("7")}>
+        <Button m="2" variant={Variant7} onClick={() => showInfo("7")}>
           Tiffin/Food
         </Button>
       </Box>

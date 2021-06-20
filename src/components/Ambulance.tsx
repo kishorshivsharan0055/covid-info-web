@@ -1,9 +1,8 @@
 import { Box, Grid } from "@chakra-ui/core";
 import { Stack } from "@chakra-ui/react";
 import * as React from "react";
-import { Logo } from "./Logo";
-import { SocialMediaLinks } from "./SocialMediaLinks";
 import { Copyright } from "./Copyright";
+import { Logo } from "./Logo";
 
 const Footer = () => (
   <Box
@@ -15,7 +14,7 @@ const Footer = () => (
     bottom="0"
     py="12"
     mt="20"
-    backgroundColor="#1188E1"
+    backgroundColor="black"
     p="40"
     px={{ base: "4", md: "8" }}
   >
@@ -27,8 +26,6 @@ const Footer = () => (
             Pune Covid Info
           </div>
         </div>
-
-        <SocialMediaLinks />
       </Stack>
       <Copyright alignSelf={{ base: "center", sm: "start" }} />
     </Stack>

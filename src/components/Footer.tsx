@@ -1,8 +1,7 @@
 import { Box, Stack } from "@chakra-ui/react";
 import * as React from "react";
-import { Logo } from "./Logo";
-import { SocialMediaLinks } from "./SocialMediaLinks";
 import { Copyright } from "./Copyright";
+import { Logo } from "./Logo";
 
 export const Footer = () => (
   <Box
@@ -24,8 +23,6 @@ export const Footer = () => (
             Pune Covid Info
           </div>
         </div>
-
-        <SocialMediaLinks />
       </Stack>
       <Copyright alignSelf={{ base: "center", sm: "start" }} />
     </Stack>
