@@ -6,5 +6,6 @@ query getPlasma {
     mail_id
     location
     address
+    createdAt
   }
 }

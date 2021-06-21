@@ -7,6 +7,7 @@ import { Helpline } from "../components/Helpline";
 import { NavBar } from "../components/NavBar";
 import { Plasma } from "../components/Plasma";
 import { RATCenters } from "../components/RATCenters";
+import { RemdesivirInfo } from "../components/RemdesivirInfo";
 import { Tiffin } from "../components/Tiffin";
 import { createUrqlClient } from "../utils/createUrqlClient";
 
@@ -115,7 +116,7 @@ const Index = () => {
 
       {Variant5 == "solid" && <Helpline />}
 
-      {Variant6 == "solid" && <Beds />}
+      {Variant6 == "solid" && <RemdesivirInfo />}
 
       {Variant7 == "solid" && <Tiffin />}
     </>

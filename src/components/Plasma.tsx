@@ -67,7 +67,7 @@ export const Plasma: React.FC<PlasmaProps> = ({}) => {
                     textTransform="uppercase"
                     ml="2"
                   >
-                    8 Minutes ago
+                    Updated on {value.createdAt}
                   </Box>
                 </Box>
 

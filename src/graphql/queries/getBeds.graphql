@@ -4,6 +4,7 @@ query getBeds {
     hosp_Name
     phone_no
     address
+    createdAt
     with_oxygen
     without_oxygen
     icu

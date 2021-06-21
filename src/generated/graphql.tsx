@@ -67,6 +67,7 @@ export type Plasma = {
   hosp_Name: Scalars["String"];
   phone_no: Scalars["String"];
   mail_id: Scalars["String"];
+  createdAt: Scalars["String"];
   location: Scalars["String"];
   address: Scalars["String"];
 };
@@ -77,6 +78,7 @@ export type RatCenter = {
   hosp_Name: Scalars["String"];
   location: Scalars["String"];
   address: Scalars["String"];
+  createdAt: Scalars["String"];
 };
 
 export type Tiffin = {
@@ -313,6 +315,7 @@ export type GetBedsQuery = { __typename?: "Query" } & {
       | "hosp_Name"
       | "phone_no"
       | "address"
+      | "createdAt"
       | "with_oxygen"
       | "without_oxygen"
       | "icu"
@@ -332,7 +335,13 @@ export type GetPlasmaQuery = { __typename?: "Query" } & {
   getPlasma: Array<
     { __typename?: "Plasma" } & Pick<
       Plasma,
-      "id" | "hosp_Name" | "phone_no" | "mail_id" | "location" | "address"
+      | "id"
+      | "hosp_Name"
+      | "phone_no"
+      | "mail_id"
+      | "location"
+      | "address"
+      | "createdAt"
     >
   >;
 };
@@ -493,6 +502,7 @@ export const GetBedsDocument = gql`
       hosp_Name
       phone_no
       address
+      createdAt
       with_oxygen
       without_oxygen
       icu
@@ -520,6 +530,7 @@ export const GetPlasmaDocument = gql`
       mail_id
       location
       address
+      createdAt
     }
   }
 `;

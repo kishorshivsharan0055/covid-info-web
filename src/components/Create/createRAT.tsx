@@ -69,10 +69,6 @@ export const CreateRAT: React.FC<RATProps> = ({}) => {
           }}
           onSubmit={async (input) => {
             const response = await createRAT({ input: input });
-            console.log(response.error?.message);
-            console.log(response.error?.name);
-            console.log(response.error?.graphQLErrors);
-            console.log(response.error?.response);
             addToast(response);
           }}
         >

@@ -1,7 +1,13 @@
 import { Badge, Box, Divider, Grid, Button } from "@chakra-ui/core";
 import { useState } from "react";
-import { useGetBedsQuery } from "../generated/graphql";
+import {
+  GetBedsQuery,
+  GetBedsQueryVariables,
+  useGetBedsQuery,
+} from "../generated/graphql";
 import { Footer } from "./Footer";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 interface bedProps {}
 
 export const Beds: React.FC<bedProps> = ({}) => {
@@ -170,7 +176,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
               textTransform="uppercase"
               ml="2"
             >
-              8 Minutes ago
+              Updated on {value.createdAt}
             </Box>
           </Box>
 
@@ -254,7 +260,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
             <Button
               m="2"
               borderRadius={25}
-              variant={Variant1}
+              variant={Variant1 as any}
               onClick={() => showInfo("1")}
             >
               Available Only
@@ -263,7 +269,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
             <Button
               m="2"
               borderRadius={25}
-              variant={Variant3}
+              variant={Variant3 as any}
               onClick={() => showInfo("3")}
             >
               With Oxygen
@@ -272,7 +278,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
             <Button
               m="2"
               borderRadius={25}
-              variant={Variant4}
+              variant={Variant4 as any}
               onClick={() => showInfo("4")}
             >
               Without Oxygen
@@ -281,7 +287,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
             <Button
               m="2"
               borderRadius={25}
-              variant={Variant5}
+              variant={Variant5 as any}
               onClick={() => showInfo("5")}
             >
               ICU
@@ -290,7 +296,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
             <Button
               m="2"
               borderRadius={25}
-              variant={Variant6}
+              variant={Variant6 as any}
               onClick={() => showInfo("6")}
             >
               ICU with Ventilator
