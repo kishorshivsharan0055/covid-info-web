@@ -1,0 +1,8 @@
+mutation createTiffin($input: TiffinInput!) {
+  createTiffin(data: $input) {
+    id
+    provider_name
+    phone_no
+    price
+  }
+}

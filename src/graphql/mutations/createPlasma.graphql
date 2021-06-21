@@ -1,0 +1,9 @@
+mutation CreatePlasma($input: PlasmaInput!) {
+  createPlasma(data: $input) {
+    id
+    hosp_Name
+    phone_no
+    address
+    mail_id
+  }
+}

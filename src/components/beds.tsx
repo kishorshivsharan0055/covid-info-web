@@ -8,7 +8,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
   const [{ data }] = useGetBedsQuery();
 
   const [Variant1, setVariant1] = useState("solid");
-  const [Variant2, setVariant2] = useState("outline");
   const [Variant3, setVariant3] = useState("outline");
   const [Variant4, setVariant4] = useState("outline");
   const [Variant5, setVariant5] = useState("outline");
@@ -16,7 +15,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
 
   const showInfo = (selectOptions: string) => {
     setVariant1("outline");
-    setVariant2("outline");
     setVariant3("outline");
     setVariant4("outline");
     setVariant5("outline");
@@ -25,10 +23,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
     switch (selectOptions) {
       case "1":
         setVariant1("solid");
-        break;
-
-      case "2":
-        setVariant2("solid");
         break;
 
       case "3":
@@ -249,7 +243,11 @@ export const Beds: React.FC<bedProps> = ({}) => {
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
-          p="5"
+          p="2"
+          justifyContent="center"
+          alignItems="center"
+          alignContent="center"
+          textAlign="center"
         >
           <div style={{ fontSize: 20, fontWeight: "bold" }}>Filters</div>
           <div>
@@ -260,15 +258,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
               onClick={() => showInfo("1")}
             >
               Available Only
-            </Button>
-
-            <Button
-              m="2"
-              borderRadius={25}
-              variant={Variant2}
-              onClick={() => showInfo("2")}
-            >
-              Recently Updated
             </Button>
 
             <Button

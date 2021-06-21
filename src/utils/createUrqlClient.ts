@@ -1,11 +1,10 @@
 import { cacheExchange } from "@urql/exchange-graphcache";
 import { dedupExchange, fetchExchange } from "urql";
-import {
-  CheckMeDocument,
-  CheckMeQuery,
+import {  
+  MeDocument,
+  MeQuery,
   LoginMutation,
-  LogoutMutation,
-  RegisterMutation,
+  LogoutMutation,  
 } from "../generated/graphql";
 import { betterUpdateQuery } from "./betterUpdateQuery";
 
@@ -19,46 +18,33 @@ export const createUrqlClient = (ssrExchange: any) => ({
     cacheExchange({
       updates: {
         Mutation: {
+
           logout: (_result, args, cache, info) => {
-            betterUpdateQuery<LogoutMutation, CheckMeQuery>(
+            betterUpdateQuery<LogoutMutation, MeQuery>(
               cache,
-              { query: CheckMeDocument },
+              { query: MeDocument },
               _result,
-              () => ({ checkMe: null })
+              () => ({ me: null })
             );
           },
-          login: (_result, args, cache, info) => {
-            betterUpdateQuery<LoginMutation, CheckMeQuery>(
+
+          login: (result, _args, cache, _info) => {
+            betterUpdateQuery<LoginMutation, MeQuery>(
               cache,
-              { query: CheckMeDocument },
-              _result,
-              (result, query) => {
-                if (result.login.errors) {
+              { query: MeDocument },
+              result,
+              (res, query) => {
+                if (res.login.errors) {
                   return query;
                 } else {
                   return {
-                    checkMe: result.login.user,
+                    me: res.login.user,
                   };
                 }
               }
             );
           },
-          register: (_result, args, cache, info) => {
-            betterUpdateQuery<RegisterMutation, CheckMeQuery>(
-              cache,
-              { query: CheckMeDocument },
-              _result,
-              (result, query) => {
-                if (result.register.user) {
-                  return query;
-                } else {
-                  return {
-                    checkMe: result.register.user,
-                  };
-                }
-              }
-            );
-          },
+
         },
         Subscription: {
           newTodo: (result, args, cache, info) => {

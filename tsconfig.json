@@ -30,7 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", "../server/src/utils/sleep.tsx"
-  ],
+, "src/utils/createWithApollo.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -9,6 +9,7 @@
     "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.20",
     "@chakra-ui/core": "^0.5.2",
     "@chakra-ui/layout": "^1.4.5",
     "@chakra-ui/react": "^1.6.3",

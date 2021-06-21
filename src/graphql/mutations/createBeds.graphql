@@ -1,0 +1,11 @@
+mutation CreateBeds($input: bedsInput!) {
+  createBeds(data: $input) {
+    id
+    hosp_Name
+    with_oxygen
+    phone_no
+    address
+    without_oxygen
+    location
+  }
+}

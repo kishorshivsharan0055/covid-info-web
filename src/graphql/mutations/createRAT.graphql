@@ -1,0 +1,7 @@
+mutation CreatRatCenter($input: RATCenterInput!) {
+  createRATCenter(data: $input) {
+    id
+    hosp_Name
+    address
+  }
+}

@@ -1,8 +1,8 @@
 import { Box, Button } from "@chakra-ui/core";
 import { Form, Formik } from "formik";
 import { withUrqlClient } from "next-urql";
-import { useRouter } from "next/router";
 import React from "react";
+import { useRouter } from "next/router";
 import { InputField } from "../components/InputField";
 import { Wrapper } from "../components/Wrapper";
 import { useLoginMutation } from "../generated/graphql";
@@ -15,24 +15,31 @@ const Login: React.FC<{}> = ({}) => {
   return (
     <Wrapper varient="small">
       <Formik
-        initialValues={{ usernameOrEmail: "", password: "" }}
+        initialValues={{ username: "", password: "" }}
         onSubmit={async (values, { setErrors }) => {
           console.log(values);
+          console.log("error 1111");
           const response = await login(values);
+          console.log(response);
           if (response.data?.login.errors) {
             setErrors(toErrorMap(response.data.login.errors));
+            console.log(response.data.login.errors);
           } else if (response.data?.login.user) {
             // worked
-            router.push("/");
+            router.push("/admin");
           }
         }}
       >
         {({ isSubmitting }) => (
           <Form>
             <InputField
-              name="usernameOrEmail"
-              placeholder="Username or Email"
-              label="Username or Email"
+              name="username"
+              placeholder="Username"
+              label="Username"
+              style={{
+                backgroundColor: "white",
+                color: "grey",
+              }}
             />
 
             <Box mt={4}>
@@ -42,6 +49,10 @@ const Login: React.FC<{}> = ({}) => {
                 label="Password"
                 type="password"
                 autoComplete="true"
+                style={{
+                  backgroundColor: "white",
+                  color: "grey",
+                }}
               />
             </Box>
 

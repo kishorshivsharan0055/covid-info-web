@@ -1,32 +1,24 @@
 import { Box, Button } from "@chakra-ui/core";
 import { withUrqlClient } from "next-urql";
 import { useState } from "react";
-import { Ambulance } from "../components/Ambulance";
-import { Beds } from "../components/beds";
-import { Helpline } from "../components/Helpline";
+import { CreateBeds } from "../components/Create/createBeds";
+import { CreatePlasma } from "../components/Create/createPlasma";
+import { CreateRAT } from "../components/Create/createRAT";
+import { CreateTiffin } from "../components/Create/createTiffin";
 import { NavBar } from "../components/NavBar";
-import { Plasma } from "../components/Plasma";
-import { RATCenters } from "../components/RATCenters";
-import { Tiffin } from "../components/Tiffin";
 import { createUrqlClient } from "../utils/createUrqlClient";
 
-const Index = () => {
+const Admin = () => {
   const [Variant1, setVariant1] = useState("solid");
   const [Variant2, setVariant2] = useState("outline");
   const [Variant3, setVariant3] = useState("outline");
   const [Variant4, setVariant4] = useState("outline");
-  const [Variant5, setVariant5] = useState("outline");
-  const [Variant6, setVariant6] = useState("outline");
-  const [Variant7, setVariant7] = useState("outline");
 
   const showInfo = (selectOptions: string) => {
     setVariant1("outline");
     setVariant2("outline");
     setVariant3("outline");
     setVariant4("outline");
-    setVariant5("outline");
-    setVariant6("outline");
-    setVariant7("outline");
 
     switch (selectOptions) {
       case "1":
@@ -45,18 +37,6 @@ const Index = () => {
         setVariant4("solid");
         break;
 
-      case "5":
-        setVariant5("solid");
-        break;
-
-      case "6":
-        setVariant6("solid");
-        break;
-
-      case "7":
-        setVariant7("solid");
-        break;
-
       default:
         break;
     }
@@ -65,7 +45,6 @@ const Index = () => {
   return (
     <>
       <NavBar />
-
       <Box
         ml="20"
         mr="20"
@@ -89,37 +68,19 @@ const Index = () => {
         </Button>
 
         <Button m="2" variant={Variant4 as any} onClick={() => showInfo("4")}>
-          Ambulance
-        </Button>
-
-        <Button m="2" variant={Variant5 as any} onClick={() => showInfo("5")}>
-          24x7 Helpline
-        </Button>
-
-        <Button m="2" variant={Variant6 as any} onClick={() => showInfo("6")}>
-          Remdesivir Information
-        </Button>
-
-        <Button m="2" variant={Variant7 as any} onClick={() => showInfo("7")}>
           Tiffin/Food
         </Button>
       </Box>
 
-      {Variant1 == "solid" && <Beds />}
+      {Variant1 == "solid" && <CreateBeds />}
 
-      {Variant2 == "solid" && <Plasma />}
+      {Variant2 == "solid" && <CreatePlasma />}
 
-      {Variant3 == "solid" && <RATCenters />}
+      {Variant3 == "solid" && <CreateRAT />}
 
-      {Variant4 == "solid" && <Ambulance />}
-
-      {Variant5 == "solid" && <Helpline />}
-
-      {Variant6 == "solid" && <Beds />}
-
-      {Variant7 == "solid" && <Tiffin />}
+      {Variant4 == "solid" && <CreateTiffin />}
     </>
   );
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: true })(Index);
+export default withUrqlClient(createUrqlClient, { ssr: true })(Admin);
