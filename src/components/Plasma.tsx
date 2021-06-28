@@ -1,5 +1,6 @@
 import { Badge, Box, Divider, Grid } from "@chakra-ui/core";
 import { useGetPlasmaQuery } from "../generated/graphql";
+import { getTimeDistance } from "../utils/utils";
 import { Footer } from "./Footer";
 
 interface PlasmaProps {}
@@ -67,7 +68,7 @@ export const Plasma: React.FC<PlasmaProps> = ({}) => {
                     textTransform="uppercase"
                     ml="2"
                   >
-                    Updated on {value.createdAt}
+                    {getTimeDistance(value.createdAt)}
                   </Box>
                 </Box>
 

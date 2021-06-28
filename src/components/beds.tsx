@@ -8,6 +8,7 @@ import {
 import { Footer } from "./Footer";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
+import { getTimeDistance } from "../utils/utils";
 interface bedProps {}
 
 export const Beds: React.FC<bedProps> = ({}) => {
@@ -176,7 +177,7 @@ export const Beds: React.FC<bedProps> = ({}) => {
               textTransform="uppercase"
               ml="2"
             >
-              Updated on {value.createdAt}
+              {getTimeDistance(value.createdAt)}
             </Box>
           </Box>
 
