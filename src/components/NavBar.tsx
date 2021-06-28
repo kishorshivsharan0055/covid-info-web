@@ -33,6 +33,16 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
       <Flex>
         <Box mr={2}> Hey, {data.me.username}</Box>
         <Button
+          marginLeft={5}
+          marginRight={5}
+          onClick={() => {
+            router.push("/admin");
+          }}
+          variant="link"
+        >
+          Admin
+        </Button>
+        <Button
           onClick={() => {
             logout();
             router.push("/");
@@ -47,6 +57,11 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
   }
   return (
     <Flex bg="black" position="sticky" top="0" p={4} ml={"auto"} height={80}>
+      {" "}
+      <img
+        src="/coronavirus.png"
+        style={{ width: 45, height: 45, marginRight: 10 }}
+      />
       <div style={{ fontSize: 30, fontWeight: "bold" }}>Pune Covid Info</div>
       <Box ml={"auto"} justifyContent="center">
         {body}

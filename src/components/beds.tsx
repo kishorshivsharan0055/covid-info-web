@@ -1,18 +1,20 @@
-import { Badge, Box, Button, Divider, Grid } from "@chakra-ui/core";
-import { useState } from "react";
-import { useGetBedsQuery } from "../generated/graphql";
+import { Badge, Box, Button, Divider, Grid, Input } from "@chakra-ui/core";
+import { ChangeEvent, useState } from "react";
+import { useGetBedsQuery, GetBedsQuery } from "../generated/graphql";
 import { getTimeDistance } from "../utils/utils";
 import { Footer } from "./Footer";
 interface bedProps {}
 
-export const Beds: React.FC<bedProps> = ({}) => {
+export const BedsSection: React.FC<bedProps> = ({}) => {
   const [{ data }] = useGetBedsQuery();
+  const [searchResult, setSearchResult] = useState<GetBedsQuery["getBeds"]>();
 
   const [Variant1, setVariant1] = useState("solid");
   const [Variant3, setVariant3] = useState("outline");
   const [Variant4, setVariant4] = useState("outline");
   const [Variant5, setVariant5] = useState("outline");
   const [Variant6, setVariant6] = useState("outline");
+  const [Variant7, setVariant7] = useState("outline");
 
   const showInfo = (selectOptions: string) => {
     setVariant1("outline");
@@ -20,7 +22,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
     setVariant4("outline");
     setVariant5("outline");
     setVariant6("outline");
-
     switch (selectOptions) {
       case "1":
         setVariant1("solid");
@@ -115,6 +116,34 @@ export const Beds: React.FC<bedProps> = ({}) => {
     );
   };
 
+  const searchBeds = (e: ChangeEvent<HTMLInputElement>) => {
+    setVariant1("outline");
+    setVariant3("outline");
+    setVariant4("outline");
+    setVariant5("outline");
+    setVariant6("outline");
+    setVariant7("solid");
+
+    const searchTerm = e.target.value;
+    console.log(searchTerm);
+    if (searchTerm == "") {
+      setVariant1("solid");
+      return;
+    }
+
+    setSearchResult(
+      data?.getBeds.filter(
+        (item) =>
+          item.hosp_Name.includes(searchTerm.toString(), 0) ||
+          item.address.includes(searchTerm.toString(), 0)
+      )
+    );
+
+    searchResult?.map((value) => {
+      console.log(value.hosp_Name);
+    });
+  };
+
   const bedBox = (value: any) => {
     return (
       <Box
@@ -127,7 +156,6 @@ export const Beds: React.FC<bedProps> = ({}) => {
         mt={5}
         mb={5}
       >
-        {console.log(value.hosp_Name)}
         <Box p="6">
           <Box
             mt="1"
@@ -250,6 +278,14 @@ export const Beds: React.FC<bedProps> = ({}) => {
           alignContent="center"
           textAlign="center"
         >
+          <Input
+            placeholder="Search"
+            borderRadius={5}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => searchBeds(e)}
+          />
+          <div style={{ fontSize: 12, margin: 5 }}>
+            Search by name, address or pincode
+          </div>
           <div style={{ fontSize: 20, fontWeight: "bold" }}>Filters</div>
           <div>
             <Button
@@ -309,6 +345,16 @@ export const Beds: React.FC<bedProps> = ({}) => {
       {Variant5 == "solid" && icuFilter()}
 
       {Variant6 == "solid" && icuVentilatorFilter()}
+
+      {Variant7 == "solid" && (
+        <Grid ml={20} mt={10} mr={20} templateColumns="repeat(1, 1fr)">
+          {!searchResult ? (
+            <div>Loading...</div>
+          ) : (
+            searchResult.map((value) => <>{bedBox(value)}</>)
+          )}
+        </Grid>
+      )}
 
       <Footer />
     </>

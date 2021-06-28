@@ -2,7 +2,6 @@ import { Box, Grid } from "@chakra-ui/core";
 import { Stack } from "@chakra-ui/react";
 import * as React from "react";
 import { Copyright } from "./Copyright";
-import { Logo } from "./Logo";
 
 const Footer = () => (
   <Box
@@ -21,7 +20,10 @@ const Footer = () => (
     <Stack>
       <Stack direction="row" spacing="4" align="center" justify="space-between">
         <div style={{ flex: "1" }}>
-          <Logo />
+          <img
+            src="/coronavirus.png"
+            style={{ width: 45, height: 45, marginRight: 10 }}
+          />
           <div style={{ fontSize: 30, fontWeight: "bold" }}>
             Pune Covid Info
           </div>

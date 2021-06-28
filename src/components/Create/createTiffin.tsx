@@ -73,14 +73,20 @@ export const CreateTiffin: React.FC<tiffinProps> = ({}) => {
           onSubmit={async (input) => {
             const response = await createTiffin({ input: input });
             addToast(response);
+            input.provider_name = "";
+            input.phone_no = "";
+            input.address = "";
+            input.price = "";
+            input.delivery = "";
+            input.food = "";
           }}
         >
           {({ isSubmitting }) => (
             <Form>
               <InputField
                 name="provider_name"
-                placeholder="Hospital Name2"
-                label="Hospital Name"
+                placeholder="Provider"
+                label="Provider"
                 style={{
                   backgroundColor: "white",
                   color: "grey",

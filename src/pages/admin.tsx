@@ -54,6 +54,7 @@ const Admin = () => {
         borderRadius="lg"
         overflow="hidden"
         p="5"
+        textAlign="center"
       >
         <Button m="2" variant={Variant1 as any} onClick={() => showInfo("1")}>
           Beds
