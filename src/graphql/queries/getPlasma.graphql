@@ -7,5 +7,6 @@ query getPlasma {
     location
     address
     createdAt
+    blood_grp
   }
 }

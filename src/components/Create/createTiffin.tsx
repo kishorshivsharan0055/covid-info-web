@@ -31,7 +31,7 @@ export const CreateTiffin: React.FC<tiffinProps> = ({}) => {
             bg="#ff4444"
           >
             <div style={{ fontSize: 18, fontWeight: "bold" }}>Error</div>
-            <div>Error occued while saving data</div>
+            <div>Error occured while saving data</div>
           </Box>
         ),
       });

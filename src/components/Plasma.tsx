@@ -75,18 +75,17 @@ export const Plasma: React.FC<PlasmaProps> = ({}) => {
                 <Divider></Divider>
 
                 <Box d="flex" alignItems="baseline">
-                  <Badge borderRadius="full" variantColor="red" px="5" py="3">
-                    A +ve - 12
-                  </Badge>
-                  <Badge
-                    ml={1}
-                    borderRadius="full"
-                    variantColor="red"
-                    px="5"
-                    py="3"
-                  >
-                    O +ve - 15
-                  </Badge>
+                  {value.blood_grp.map((value) => (
+                    <Badge
+                      borderRadius="full"
+                      variantColor="red"
+                      px="5"
+                      py="3"
+                      m={2}
+                    >
+                      {value}
+                    </Badge>
+                  ))}
                 </Box>
               </Box>
             </Box>

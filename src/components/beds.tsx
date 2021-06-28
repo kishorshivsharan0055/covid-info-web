@@ -1,14 +1,8 @@
-import { Badge, Box, Divider, Grid, Button } from "@chakra-ui/core";
+import { Badge, Box, Button, Divider, Grid } from "@chakra-ui/core";
 import { useState } from "react";
-import {
-  GetBedsQuery,
-  GetBedsQueryVariables,
-  useGetBedsQuery,
-} from "../generated/graphql";
-import { Footer } from "./Footer";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import { useGetBedsQuery } from "../generated/graphql";
 import { getTimeDistance } from "../utils/utils";
+import { Footer } from "./Footer";
 interface bedProps {}
 
 export const Beds: React.FC<bedProps> = ({}) => {

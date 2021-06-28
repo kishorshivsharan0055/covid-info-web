@@ -12,6 +12,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+  DateTime: any;
 };
 
 export type Query = {
@@ -49,7 +51,7 @@ export type Beds = {
   hosp_Name: Scalars["String"];
   phone_no: Scalars["String"];
   address: Scalars["String"];
-  createdAt: Scalars["String"];
+  createdAt: Scalars["DateTime"];
   location: Scalars["String"];
   with_oxygen: Scalars["Float"];
   without_oxygen: Scalars["Float"];
@@ -67,9 +69,10 @@ export type Plasma = {
   hosp_Name: Scalars["String"];
   phone_no: Scalars["String"];
   mail_id: Scalars["String"];
-  createdAt: Scalars["String"];
+  createdAt: Scalars["DateTime"];
   location: Scalars["String"];
   address: Scalars["String"];
+  blood_grp: Array<Scalars["String"]>;
 };
 
 export type RatCenter = {
@@ -195,6 +198,7 @@ export type PlasmaInput = {
   mail_id: Scalars["String"];
   location: Scalars["String"];
   address: Scalars["String"];
+  blood_grp: Array<Scalars["String"]>;
 };
 
 export type RatCenterInput = {
@@ -342,6 +346,7 @@ export type GetPlasmaQuery = { __typename?: "Query" } & {
       | "location"
       | "address"
       | "createdAt"
+      | "blood_grp"
     >
   >;
 };
@@ -531,6 +536,7 @@ export const GetPlasmaDocument = gql`
       location
       address
       createdAt
+      blood_grp
     }
   }
 `;
